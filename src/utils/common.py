@@ -3,7 +3,7 @@ from box import ConfigBox
 from src.logger import logging
 from src.exception import CustomException
 import sys
-
+from typing import Iterable
 import yaml
 
 
@@ -23,3 +23,18 @@ def read_yaml(path_to_yaml:Path)->ConfigBox:
             f"Failed to load YAML file: {path_to_yaml}"
         )
         raise CustomException(e, sys)
+    
+def create_directories(path_to_directories: Iterable[Path], verbose=True):
+    """
+    Create multiple directories.
+    """
+    for path in path_to_directories:
+        Path(path).mkdir(
+            parents=True,
+            exist_ok=True
+        )
+
+        if verbose:
+            logging.info(
+                f"Created directory: {path}"
+            )
