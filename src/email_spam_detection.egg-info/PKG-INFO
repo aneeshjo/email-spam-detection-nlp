@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: email_spam_detection
+Version: 0.0.1
+Summary: End-to-End Email Spam Detection using NLP and Machine Learning
+Author: Aneesh Jose
+Author-email: aneeshjose012@gmail.com
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: nltk
+Requires-Dist: matplotlib
+Requires-Dist: joblib
+Requires-Dist: PyYAML
+Requires-Dist: python-box
+Requires-Dist: ensure
+Requires-Dist: streamlit
+Requires-Dist: scipy
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary

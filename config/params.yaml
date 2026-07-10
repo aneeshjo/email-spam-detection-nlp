@@ -1,0 +1,6 @@
+test_size: 0.2
+random_state: 42
+
+tfidf:
+  max_features: 5000
+  ngram_range: [1, 2]

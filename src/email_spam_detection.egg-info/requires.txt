@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+nltk
+matplotlib
+joblib
+PyYAML
+python-box
+ensure
+streamlit
+scipy

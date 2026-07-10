@@ -1,0 +1,25 @@
+# Data Processing
+pandas==3.0.3
+numpy==2.5.1
+
+# Machine Learning
+scikit-learn==1.9.0
+scipy==1.18.0
+joblib==1.5.3
+
+# NLP
+nltk==3.10.0
+
+# Visualization
+matplotlib==3.11.0
+
+# Configuration
+PyYAML==6.0.3
+python-box==7.4.1
+ensure==1.0.4
+
+# Deployment
+streamlit==1.59.1
+
+# Local Package
+-e .
