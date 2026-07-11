@@ -2,7 +2,10 @@ from pathlib import Path
 
 
 from src.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH
-from src.entity.config_entity import DataIngestionConfig
+from src.entity.config_entity import (
+    DataIngestionConfig,
+    DataValidationConfig
+)
 from src.utils.common import read_yaml, create_directories
 
 class ConfigurationManager:
@@ -27,3 +30,23 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+    
+    def get_data_validation_config(self) -> DataValidationConfig:
+        """
+        Creates and returns the configuration required for
+        the Data Validation component.
+        """
+
+        config = self.config.data_validation
+
+        create_directories([config.root_dir])
+
+        data_validation_config = DataValidationConfig(
+            root_dir=Path(config.root_dir),
+            status_file=Path(config.status_file),
+            data_file=Path(
+                self.config.data_ingestion.local_data_file
+            )
+        )
+
+        return data_validation_config
