@@ -1,5 +1,6 @@
 from pathlib import Path
 
+
 from src.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH
 from src.entity.config_entity import DataIngestionConfig
 from src.utils.common import read_yaml, create_directories
@@ -21,6 +22,7 @@ class ConfigurationManager:
 
         data_ingestion_config = DataIngestionConfig(
             root_dir=Path(config.root_dir),
+            source_file=Path(config.source_file),
             local_data_file=Path(config.local_data_file)
         )
 

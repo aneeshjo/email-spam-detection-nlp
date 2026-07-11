@@ -4,17 +4,17 @@ Version: 0.0.1
 Summary: End-to-End Email Spam Detection using NLP and Machine Learning
 Author: Aneesh Jose
 Author-email: aneeshjose012@gmail.com
-Requires-Dist: pandas
-Requires-Dist: numpy
-Requires-Dist: scikit-learn
-Requires-Dist: nltk
-Requires-Dist: matplotlib
-Requires-Dist: joblib
-Requires-Dist: PyYAML
-Requires-Dist: python-box
-Requires-Dist: ensure
-Requires-Dist: streamlit
-Requires-Dist: scipy
+Requires-Dist: pandas==3.0.3
+Requires-Dist: numpy==2.5.1
+Requires-Dist: scikit-learn==1.9.0
+Requires-Dist: scipy==1.18.0
+Requires-Dist: joblib==1.5.3
+Requires-Dist: nltk==3.10.0
+Requires-Dist: matplotlib==3.11.0
+Requires-Dist: PyYAML==6.0.3
+Requires-Dist: python-box==7.4.1
+Requires-Dist: ensure==1.0.4
+Requires-Dist: streamlit==1.59.1
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist

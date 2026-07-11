@@ -2,4 +2,5 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
+  source_file: dataset/SMSSpamCollection
   local_data_file: artifacts/data_ingestion/spam.csv
