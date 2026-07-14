@@ -12,3 +12,10 @@ class DataValidationConfig:
     root_dir: Path
     status_file: Path
     data_file: Path
+
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir:Path
+    input_data_file:Path
+    transformed_data_file:Path
+    vectorizer_file:Path

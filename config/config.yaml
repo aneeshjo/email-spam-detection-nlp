@@ -8,3 +8,10 @@ data_ingestion:
 data_validation:
   root_dir: artifacts/data_validation
   status_file: artifacts/data_validation/status.txt
+  data_file: artifacts/data_ingestion/spam.csv
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  input_data_file: artifacts/data_ingestion/spam.csv
+  transformed_data_file: artifacts/data_transformation/spam_cleaned.csv
+  vectorizer_file: artifacts/data_transformation/tfidf_vectorizer.pkl
