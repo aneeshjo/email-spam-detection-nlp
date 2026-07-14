@@ -10,6 +10,7 @@ Requires-Dist: scikit-learn==1.9.0
 Requires-Dist: scipy==1.18.0
 Requires-Dist: joblib==1.5.3
 Requires-Dist: nltk==3.10.0
+Requires-Dist: wordcloud==1.9.6
 Requires-Dist: matplotlib==3.11.0
 Requires-Dist: PyYAML==6.0.3
 Requires-Dist: python-box==7.4.1
