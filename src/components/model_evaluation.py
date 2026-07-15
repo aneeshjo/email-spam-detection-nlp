@@ -185,8 +185,7 @@ class ModelEvaluation:
             # =====================================================
             # Calculate Metrics
             # =====================================================
-            logging.info(f"Unique values in y_test: {y_test.unique()}")
-            logging.info(f"Unique values in y_pred: {pd.Series(y_pred).unique()}")
+            
 
             
             metrics = {
@@ -199,6 +198,12 @@ class ModelEvaluation:
                     y_pred
                 ).tolist()
             }
+            logging.info("Final Model Performance")
+
+            logging.info(f"Accuracy : {metrics['accuracy']:.4f}")
+            logging.info(f"Precision: {metrics['precision']:.4f}")
+            logging.info(f"Recall   : {metrics['recall']:.4f}")
+            logging.info(f"F1 Score : {metrics['f1_score']:.4f}")
 
             logging.info("Evaluation metrics calculated successfully.")
 

@@ -50,3 +50,8 @@ class ModelEvaluationConfig:
     test_size: float
     random_state: int
     stratify: bool
+
+@dataclass(frozen=True)
+class PredictionConfig:
+    model_file: Path
+    vectorizer_file: Path

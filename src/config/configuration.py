@@ -7,7 +7,8 @@ from src.entity.config_entity import (
     DataValidationConfig,
     DataTransformationConfig,
     ModelTrainerConfig,
-    ModelEvaluationConfig
+    ModelEvaluationConfig,
+    PredictionConfig
 )
 from src.utils.common import read_yaml, create_directories
 
@@ -105,3 +106,12 @@ class ConfigurationManager:
         )
 
         return model_evaluation_config
+    
+    def get_prediction_config(self) ->PredictionConfig:
+        config=self.config.prediction_pipeline
+        prediction_config=PredictionConfig(
+            model_file=Path(config.model_file),
+            vectorizer_file=Path(config.vectorizer_file)
+
+        )
+        return prediction_config
