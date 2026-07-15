@@ -6,7 +6,8 @@ from src.entity.config_entity import (
     DataIngestionConfig,
     DataValidationConfig,
     DataTransformationConfig,
-    ModelTrainerConfig
+    ModelTrainerConfig,
+    ModelEvaluationConfig
 )
 from src.utils.common import read_yaml, create_directories
 
@@ -74,7 +75,33 @@ class ConfigurationManager:
             root_dir=Path(config.root_dir),
             input_data_file=Path(config.input_data_file),
             model_file=Path(config.model_file),
-            vectorizer_file=Path(config.vectorizer_file)
+            vectorizer_file=Path(config.vectorizer_file),
+
+            test_size=self.params.TEST_SIZE,
+            random_state=self.params.RANDOM_STATE,
+            stratify=self.params.STRATIFY
         )
 
         return model_trainer_config
+    
+    def get_model_evaluation_config(
+        self
+    ) -> ModelEvaluationConfig:
+
+        config = self.config.model_evaluation
+
+        create_directories([config.root_dir])
+
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir=Path(config.root_dir),
+            input_data_file=Path(config.input_data_file),
+            model_file=Path(config.model_file),
+            vectorizer_file=Path(config.vectorizer_file),
+            metric_file=Path(config.metric_file),
+
+            test_size=self.params.TEST_SIZE,
+            random_state=self.params.RANDOM_STATE,
+            stratify=self.params.STRATIFY
+        )
+
+        return model_evaluation_config

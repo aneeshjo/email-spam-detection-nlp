@@ -27,3 +27,18 @@ model_trainer:
   model_file: artifacts/model_trainer/spam_classifier.pkl
 
   vectorizer_file: artifacts/model_trainer/tfidf_vectorizer.pkl
+
+# ==========================================================
+# Model Evaluation
+# ==========================================================
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+
+  input_data_file: artifacts/data_transformation/spam_cleaned.csv
+
+  model_file: artifacts/model_trainer/spam_classifier.pkl
+
+  vectorizer_file: artifacts/model_trainer/tfidf_vectorizer.pkl
+
+  metric_file: artifacts/model_evaluation/metrics.json

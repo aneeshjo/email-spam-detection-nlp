@@ -1,6 +1,11 @@
-test_size: 0.2
-random_state: 42
+# ==========================================
+# Train-Test Split
+# ==========================================
+TEST_SIZE: 0.2
+RANDOM_STATE: 42
+STRATIFY: true
 
-tfidf:
-  max_features: 5000
-  ngram_range: [1, 2]
+# ==========================================
+# TF-IDF
+# ==========================================
+LOWERCASE: false

@@ -3,13 +3,13 @@ import sys
 import joblib
 import pandas as pd
 
-from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import LinearSVC
 
 from src.entity.config_entity import ModelTrainerConfig
 from src.exception import CustomException
 from src.logger import logging
+from src.utils.models_utils import split_dataset
 
 class ModelTrainer:
     """
@@ -83,49 +83,7 @@ class ModelTrainer:
             logging.exception("Failed to load the data")
             raise CustomException(e, sys)
         
-    def split_data(self, df: pd.DataFrame):
-        """
-        Split the dataset into training and testing sets.
-
-        Parameters
-        ----------
-        df : pd.DataFrame
-            Cleaned dataset.
-
-        Returns
-        -------
-        tuple
-            X_train, X_test, y_train, y_test
-        """
-
-        try:
-
-            logging.info("Splitting dataset into training and testing sets...")
-
-            # Features
-            X = df["transformed_text"]
-
-            # Target
-            y = df["label"]
-
-            # Train-Test Split
-            X_train, X_test, y_train, y_test = train_test_split(
-                X,
-                y,
-                test_size=0.2,
-                random_state=42,
-                stratify=y
-            )
-
-            logging.info(
-                f"Training samples : {len(X_train)} | "
-                f"Testing samples : {len(X_test)}"
-            )
-
-            return X_train, X_test, y_train, y_test
-
-        except Exception as e:
-            raise CustomException(e, sys)
+    
         
     def train_vectorizer(
     self,
@@ -293,7 +251,10 @@ class ModelTrainer:
             # Split dataset
             # ==========================================
 
-            X_train, X_test, y_train, y_test = self.split_data(df)
+            X_train, X_test, y_train, y_test = split_dataset(
+                df,
+                self.config
+            )
 
             # ==========================================
             # Train TF-IDF Vectorizer

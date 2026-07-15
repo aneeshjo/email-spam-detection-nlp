@@ -30,3 +30,23 @@ class ModelTrainerConfig:
     input_data_file: Path
     model_file: Path
     vectorizer_file: Path
+
+    test_size: float
+    random_state: int
+    stratify: bool
+
+# ==========================================================
+# Model Evaluation Configuration
+# ==========================================================
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    input_data_file: Path
+    model_file: Path
+    vectorizer_file: Path
+    metric_file: Path
+
+    test_size: float
+    random_state: int
+    stratify: bool

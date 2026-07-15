@@ -109,6 +109,18 @@ class DataTransformation:
             logging.info(
             f"Dataset loaded successfully with shape: {df.shape}"
             )
+            # ======================================================
+            # Encode Labels
+            # ======================================================
+
+            label_mapping = {
+                "ham": 0,
+                "spam": 1
+            }
+
+            df["label"] = df["label"].map(label_mapping)
+
+            logging.info("Labels encoded successfully.")
 
             # ======================================================
             # Text Preprocessing
