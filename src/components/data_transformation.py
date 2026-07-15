@@ -8,7 +8,6 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
 
-from sklearn.feature_extraction.text import TfidfVectorizer
 
 from src.entity.config_entity import DataTransformationConfig
 from src.exception import CustomException
@@ -84,4 +83,67 @@ class DataTransformation:
 
         # Return cleaned text
         return " ".join(tokens)
+    
+    def initiate_data_transformation(self):
+        """
+        Executes the complete data transformation pipeline.
+
+        Steps:
+        1. Load the dataset.
+        2. Apply text preprocessing.
+        3. Create the transformed_text column.
+        4. Train the TF-IDF vectorizer.
+        5. Save the transformed dataset.
+        6. Save the fitted TF-IDF vectorizer.
+        """
+
+        try:
+
+            logging.info("Starting data transformation...")
+            # ======================================================
+            # Load Dataset
+            # ======================================================
+
+            df=pd.read_csv(self.config.input_data_file,keep_default_na=False)
+
+            logging.info(
+            f"Dataset loaded successfully with shape: {df.shape}"
+            )
+
+            # ======================================================
+            # Text Preprocessing
+            # ======================================================
+
+            df["transformed_text"] = df["message"].apply(
+            self._transform_text
+            )
+
+            logging.info( "Text preprocessing completed successfully.")
+            
+            # ======================================================
+            # Save Transformed Dataset
+            # ======================================================
+            df.to_csv(
+                self.config.transformed_data_file,
+                index=False
+            )
+
+            logging.info(
+            f"Transformed dataset saved at: {self.config.transformed_data_file}"
+            )
+
+            # ======================================================
+            # Save Vectorizer
+            # ======================================================
+
+            logging.info(
+            "Data transformation completed successfully."
+            )
+
+        except Exception as e:
+            
+            raise CustomException(e, sys)
+
+
+
 

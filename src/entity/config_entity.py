@@ -18,4 +18,15 @@ class DataTransformationConfig:
     root_dir:Path
     input_data_file:Path
     transformed_data_file:Path
-    vectorizer_file:Path
+    
+
+# ==========================================================
+# Model Trainer Configuration
+# ==========================================================
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    input_data_file: Path
+    model_file: Path
+    vectorizer_file: Path

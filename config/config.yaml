@@ -14,4 +14,16 @@ data_transformation:
   root_dir: artifacts/data_transformation
   input_data_file: artifacts/data_ingestion/spam.csv
   transformed_data_file: artifacts/data_transformation/spam_cleaned.csv
-  vectorizer_file: artifacts/data_transformation/tfidf_vectorizer.pkl
+
+# ==========================================================
+# Model Trainer
+# ==========================================================
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+
+  input_data_file: artifacts/data_transformation/spam_cleaned.csv
+
+  model_file: artifacts/model_trainer/spam_classifier.pkl
+
+  vectorizer_file: artifacts/model_trainer/tfidf_vectorizer.pkl
