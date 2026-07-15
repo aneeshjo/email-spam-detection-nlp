@@ -7,7 +7,6 @@ trainer_config = config.get_model_trainer_config()
 
 trainer = ModelTrainer(trainer_config)
 
-df = trainer.load_data()
+trainer.initiate_model_training()
 
-print(df.head())
-print(df.shape)
+print("Model training completed successfully.")
