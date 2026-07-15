@@ -52,6 +52,10 @@ class ModelEvaluationConfig:
     stratify: bool
 
 @dataclass(frozen=True)
-class PredictionConfig:
-    model_file: Path
-    vectorizer_file: Path
+class HuggingFaceConfig:
+
+    repo_id: str
+
+    model_file: str
+
+    vectorizer_file: str

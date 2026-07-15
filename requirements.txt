@@ -11,6 +11,7 @@ joblib==1.5.3
 nltk==3.10.0
 
 wordcloud==1.9.6
+huggingface_hub==1.23.0
 
 # Visualization
 matplotlib==3.11.0

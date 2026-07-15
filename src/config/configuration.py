@@ -8,7 +8,7 @@ from src.entity.config_entity import (
     DataTransformationConfig,
     ModelTrainerConfig,
     ModelEvaluationConfig,
-    PredictionConfig
+    HuggingFaceConfig
 )
 from src.utils.common import read_yaml, create_directories
 
@@ -107,11 +107,14 @@ class ConfigurationManager:
 
         return model_evaluation_config
     
-    def get_prediction_config(self) ->PredictionConfig:
-        config=self.config.prediction_pipeline
-        prediction_config=PredictionConfig(
-            model_file=Path(config.model_file),
-            vectorizer_file=Path(config.vectorizer_file)
+    def get_huggingface_config(self) -> HuggingFaceConfig:
 
+        config = self.config.huggingface
+
+        huggingface_config = HuggingFaceConfig(
+        repo_id=config.repo_id,
+        model_file=config.model_file,
+        vectorizer_file=config.vectorizer_file
         )
-        return prediction_config
+
+        return huggingface_config

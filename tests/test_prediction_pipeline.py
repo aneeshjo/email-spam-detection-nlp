@@ -6,9 +6,9 @@ from src.config.configuration import ConfigurationManager
 
 config = ConfigurationManager()
 
-prediction_config = config.get_prediction_config()
+hf_config = config.get_huggingface_config()
 
-pipeline = PredictionPipeline(prediction_config)
+pipeline = PredictionPipeline(hf_config)
 
 # Test Message
 custom_data = CustomData(
